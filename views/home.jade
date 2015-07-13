@@ -8,8 +8,21 @@ block content
         div.left My Recommendations
         div.right Group's Likes
       div.main-contain
-        h1 Agent View Bissshhh
-        p.lead Hellz yesss
+        .list-container
+          
+        button.add-rec.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(onclick='$("#modl-back").show();$("#modl").show();') +
+        #modl-back(onclick='$("#modl-back").hide();$("#modl").hide();')
+        #modl.mdl-card.mdl-shadow--2dp
+          .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo
+            input#in-name.mdl-textfield__input(type='text')
+            label.mdl-textfield__label Name
+          .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo
+            input#in-place.mdl-textfield__input(type='text')
+            label.mdl-textfield__label Place
+          .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo
+            input#in-type.mdl-textfield__input(type='text')
+            label.mdl-textfield__label Type
+          button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(onclick='addNewPlace();$("#modl-back").hide();$("#modl").hide();') Add
     else
       div.tabbar
         div.tabbar-ind
