@@ -1,0 +1,189 @@
+@import "vendor/bootstrap/bootstrap";
+@import "vendor/font-awesome/font-awesome";
+@import "vendor/bootstrap-social";
+@import "themes/default";
+@import "material.min.css";
+
+// Scaffolding
+// -------------------------
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  position: absolute;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+
+  p,
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+.landing {
+  width: 100vw;
+  height: 100vh;
+  background-color: #65d877;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .title-group {
+    margin-left: 10%;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    
+    .title {
+      margin-bottom: 0px;
+      font-size: 78px;
+    }
+
+    .sub {
+      font-size: 22px;
+      color: rgba(255,255,255,0.7);
+    }
+  }
+
+  a {
+    display: block;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+  }
+
+  .login {
+    background-color: #fff;
+    color: #6ada8d;
+  }
+
+  .signup {
+    background-color: #47b053;
+    color: #fff;
+  }
+}
+
+.agent-contain {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ebebeb;
+  color: #343434;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+// Navbar
+// -------------------------
+
+.topbar img {
+  width: 30px;
+  height: 30px;
+  margin: -15px 5px -15px;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 70px;
+  background-color: #65d877;
+  color: #fff;
+  z-index: 10;
+
+  .topbar-title {
+    line-height: 70px;
+    font-size: 30px;
+    margin-left: 30px;
+    display: inline;
+  }
+
+  .topbar-right {
+    list-style-type: none;
+    width: 160px;
+    right: 0;
+    top: 0;
+    position: fixed;
+    text-align: right;
+    .dropdown {
+      line-height: 70px;
+    }
+  }
+}
+
+.tabbar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  height: 80px;
+  background-color: #65d877;
+  color: #fff;
+  z-index: 5;
+
+  .tabbar-ind {
+    position: fixed;
+    top: 60px;
+    width: 50vw;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+    height: 80px;
+    z-index: 6;
+  }
+
+  .left, .right {
+    z-index: 8;
+    line-height: 90px;
+    display: inline;
+    position: fixed;
+    top: 60px;
+    width: 50vw;
+    font-size: 26px;
+    left: 0;
+    height: 8;
+    text-align: center;
+  }
+  .right {
+    left: 50vw;
+  }
+}
+
+// Alerts
+// -------------------------
+
+.alert {
+  margin-top: 20px;
+}
+
+// Thumbnails
+// -------------------------
+
+.thumbnail {
+  padding: 0;
+  border-radius: 0;
+  box-shadow: 0 0 5px #ccc, inset 0 0 0 #000;
+}
+
+// Font Icons
+// -------------------------
+
+.fa,
+[class^='ion-'] {
+  margin-right: 6px;
+}
+
+.ellipsis {
+  font-size: 22px;
+}

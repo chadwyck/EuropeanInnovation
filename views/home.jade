@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  if user
+    if user.agent
+      div.tabbar
+        div.tabbar-ind
+        div.left My Recommendations
+        div.right Group's Likes
+      div.main-contain
+        h1 Agent View Bissshhh
+        p.lead Hellz yesss
+    else
+      div.tabbar
+        div.tabbar-ind
+        div.left Agent's Recommendations
+        div.right My Picks
+      div.main-contain
+        h1 User View Bissshhh
+        p.lead This might work better than I thought
+  else
+    div.landing
+      div.title-group
+        h1.title Navia
+        p.sub Where will you travel next?
+      a.login.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(href='/login') Log In
+      a.signup.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(href='/signup') Sign Up
