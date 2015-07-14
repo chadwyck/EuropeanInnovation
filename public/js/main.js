@@ -1,48 +1,51 @@
-$(document).ready(function() {
+'use strict';
 
+var addNewPlace = function() {
+  var name = $('#in-name').val();
+  var place = $('#in-place').val();
+  var type = $('#in-type').val();
 
+  if (name !== '' && place !== '' && type !== '') {
 
-});
+    // createDest(name, place, type);
 
-var myDestRef = new Firebase('https://popping-inferno-6981.firebaseio.com/');
-var myLikeRef = new Firebase('https://popping-inferno-6981.firebaseio.com/likes');
+    $('#in-name').val('');
+    $('#in-place').val('');
+    $('#in-type').val('');
+    var params = {
+      name: name,
+      place: place,
+      type: type,
+      likes: 0
+    };
 
+    $.post('/api/entries', params).done(function(entry) {
+      console.log('entry added');
+      createDest(entry);
+    });
+  }
+};
 
-var addNewPlace = function () {
-  	var name = $('#in-name').val();
-  	var place = $('#in-place').val();
-  	var type = $('#in-type').val();
+var createDest = function(dest) {
+  var userStuff = '';
+  if (!agent) {
+    userStuff = '<div class="like-hearts">';
+  }
+  $('.list-container').append(
+    '<div class="list-item mdl-card mdl-shadow--2dp"><div class="list-text mdl-card__supporting-text">' +
+    dest.name + ', ' + dest.place + ' (' + dest.type + ')' + '</div>' + userStuff + '</div>');
+  $('.like-hearts').click(function() {
+    $(this).toggleClass('liked');
 
-  	if (name != ''  && place != '' && type != '') {
+    var params = $.extend({ email: 'test@foo'}, dest);
+    $.post('/api/destinations', params).done(function() {
+      console.log('destination added');
+    });
+  });
+};
 
-	  	// createDest(name, place, type);
-
-	  	$('#in-name').val('');
-	  	$('#in-place').val('');
-	  	$('#in-type').val('');
-
-	  	myDataRef.push({name: name, place: place, type: type, likes: 0});
-	}
-}
-
-var createDest = function (name, place, type) {
-	var userStuff = '';
-	if(!agent) {
-		userStuff = '<div class="like-hearts">';
-	}
-	$('.list-container').append('<div class="list-item mdl-card mdl-shadow--2dp"><div class="list-text mdl-card__supporting-text">'
-		+ name + ', '
-		+ place + ' ('
-		+ type + ')'
-		+'</div>' + userStuff
-		+'</div>');
-	$('.like-hearts').click(function() {
-	  	$(this).toggleClass("liked");
-	  	myDataRef.push({email: emailplz, name: name, place: place, type: type});
-	  });
-}
-
-myDataRef.on('child_added', function(snapshot) {
-  var dest = snapshot.val();
-  createDest(dest.name, dest.place, dest.type);
+$(document).ready(function(){
+  $.get('/api/entries').done(function(entries) {
+    entries.forEach(createDest);
+  });
 });
