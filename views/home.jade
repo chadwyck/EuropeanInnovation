@@ -3,13 +3,15 @@ extends layout
 block content
   if user
     if user.agent
+      script.
+        var agent = true;
+        var emailplz = "#{user.email}";
       div.tabbar
         div.tabbar-ind
         div.left My Recommendations
         div.right Group's Likes
       div.main-contain
         .list-container
-          
         button.add-rec.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(onclick='$("#modl-back").show();$("#modl").show();') +
         #modl-back(onclick='$("#modl-back").hide();$("#modl").hide();')
         #modl.mdl-card.mdl-shadow--2dp
@@ -24,13 +26,15 @@ block content
             label.mdl-textfield__label Type
           button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(onclick='addNewPlace();$("#modl-back").hide();$("#modl").hide();') Add
     else
+      script.
+        var agent = false;
+        var emailplz = "#{user.email}";
       div.tabbar
         div.tabbar-ind
         div.left Agent's Recommendations
         div.right My Picks
       div.main-contain
-        h1 User View Bissshhh
-        p.lead This might work better than I thought
+        .list-container
   else
     div.landing
       div.title-group

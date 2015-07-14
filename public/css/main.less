@@ -150,10 +150,11 @@ footer {
     position: fixed;
     top: 60px;
     width: 50vw;
-    font-size: 26px;
+    font-size: 22px;
     left: 0;
     height: 8;
     text-align: center;
+    overflow: hidden;
   }
   .right {
     left: 50vw;
@@ -240,6 +241,21 @@ footer {
     &:hover {
       background-color: #7dde8c;
     }
+  }
+}
+
+.like-hearts {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 40px;
+  width: 50px;
+  margin: 15px;
+  background: url(heart.svg) center no-repeat;
+  background-size: 40px 40px;
+  &.liked {
+    background: url(heart_full.svg) center no-repeat;
+    background-size: 40px 40px;
   }
 }
 
