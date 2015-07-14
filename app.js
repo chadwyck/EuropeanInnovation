@@ -1,3 +1,5 @@
+
+'use strict';
 /**
  * Module dependencies.
  */
@@ -29,7 +31,7 @@ var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
-
+var entriesController = require('./controllers/entries');
 /**
  * API keys and Passport configuration.
  */
@@ -76,11 +78,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use(lusca({
-  csrf: true,
-  xframe: 'SAMEORIGIN',
-  xssProtection: true
-}));
 app.use(function(req, res, next) {
   res.locals.user = req.user;
   next();
@@ -106,7 +103,7 @@ app.get('/signup', userController.getSignup);
 app.post('/signup', userController.postSignup);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
-app.get('/emailplz', userController.getEmail);
+//app.get('/emailplz', userController.getEmail);
 app.get('/account', passportConf.isAuthenticated, userController.getAccount);
 app.post('/account/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
 app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
@@ -145,6 +142,9 @@ app.get('/api/paypal/cancel', apiController.getPayPalCancel);
 app.get('/api/lob', apiController.getLob);
 app.get('/api/bitgo', apiController.getBitGo);
 app.post('/api/bitgo', apiController.postBitGo);
+
+app.get('/api/entries', entriesController.listEntries);
+app.post('/api/entries', entriesController.createEntry);
 
 /**
  * OAuth authentication routes. (Sign in)
