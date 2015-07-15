@@ -162,7 +162,6 @@ footer {
 }
 
 .main-contain {
-  padding-top: 140px;
   width: 100vw;
   height: 100vh;
   background-color: #ebebeb;
@@ -170,8 +169,35 @@ footer {
   position: absolute;
   top: 0;
   left: 0;
-  overflow-y: scroll;
   text-align: center;
+
+  .tabs-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200vw;
+    height: 100vh;
+    transition: left 0.5s ease;
+
+    .list-container {
+      overflow-y: scroll;
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      padding-top: 140px;
+      left: 0;
+      top: 0;
+
+      &.tab-2 {
+        left: 100vw;
+      }
+    }
+
+    &.on-tab-2 {
+      left: -100vw;
+    }
+  }
+          
 
   .list-item {
     margin-left: auto;

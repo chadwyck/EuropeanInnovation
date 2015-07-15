@@ -11,7 +11,7 @@ block content
         div.left My Recommendations
         div.right Group's Likes
       div.main-contain
-        .list-container
+        .list-container.recommendation
         button.add-rec.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(onclick='$("#modl-back").show();$("#modl").show();') +
         #modl-back(onclick='$("#modl-back").hide();$("#modl").hide();')
         #modl.mdl-card.mdl-shadow--2dp
@@ -31,10 +31,12 @@ block content
         var emailplz = "#{user.email}";
       div.tabbar
         div.tabbar-ind
-        div.left Agent's Recommendations
-        div.right My Picks
+        div.left(onclick='$("#u-tcontain").removeClass( "on-tab-2", 1000, "easeOut" );') Agent's Recommendations
+        div.right(onclick='$("#u-tcontain").addClass( "on-tab-2", 1000, "easeOut" );') My Picks
       div.main-contain
-        .list-container
+        .tabs-container#u-tcontain
+          .list-container.recommendation
+          .list-container.tab-2#myPicks
   else
     div.landing
       div.title-group
