@@ -1,10 +1,13 @@
 .topbar
-  img.back-img(src='assets/back.svg')
-  .topbar-title Nice Trip
+  .topbar-title Navia
   .topbar-right
     .dropdown(class=title=='Account Management'?'active':undefined)
       a.dropdown-toggle(href='#', data-toggle='dropdown')
-        img(src='assets/sail.svg')
+        if user.profile.picture
+          img(src='#{user.profile.picture}')
+        else
+          img(src='#{user.gravatar(60)}')
+        img(src='fonts/ellipsis.svg')
       ul.dropdown-menu
         li
           a(href='/account') My Account

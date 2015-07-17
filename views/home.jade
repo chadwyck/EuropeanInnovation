@@ -6,10 +6,10 @@ block content
       script.
         var agent = true;
         var emailplz = "#{user.email}";
-      div.tabbar
+      div.tabbar.mdl-shadow--4dp
         div.tabbar-ind
-        div.left(onclick='$("#a-tcontain").removeClass( "on-tab-2" );$(".tabbar-ind").removeClass("righted");') My Recommendations
-        div.right(onclick='$("#a-tcontain").addClass( "on-tab-2" );$(".tabbar-ind").addClass("righted");') Group's Likes
+        div.left(onclick='$("#a-tcontain").removeClass( "on-tab-2" );$(".tabbar-ind").removeClass("righted");') Places
+        div.right(onclick='$("#a-tcontain").addClass( "on-tab-2" );$(".tabbar-ind").addClass("righted");') Likes
       div.main-contain
         .tabs-container#a-tcontain
           .list-container.recommendation
@@ -22,19 +22,22 @@ block content
             label.mdl-textfield__label Name
           .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo
             input#in-place.mdl-textfield__input(type='text')
-            label.mdl-textfield__label Place
+            label.mdl-textfield__label Description
           .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo
             input#in-type.mdl-textfield__input(type='text')
-            label.mdl-textfield__label Type
+            label.mdl-textfield__label Info
+          .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo
+            input#in-img.mdl-textfield__input(type='text')
+            label.mdl-textfield__label Image URL
           button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(onclick='addNewPlace();$("#modl-back").hide();$("#modl").hide();') Add
     else
       script.
         var agent = false;
         var emailplz = "#{user.email}";
-      div.tabbar
+      div.tabbar.mdl-shadow--4dp
         div.tabbar-ind
-        div.left(onclick='$("#u-tcontain").removeClass( "on-tab-2" );$(".tabbar-ind").removeClass("righted");') Agent's Recommendations
-        div.right(onclick='$("#u-tcontain").addClass( "on-tab-2" );$(".tabbar-ind").addClass("righted");') My Picks
+        div.left(onclick='$("#u-tcontain").removeClass( "on-tab-2" );$(".tabbar-ind").removeClass("righted");') Places
+        div.right(onclick='$("#u-tcontain").addClass( "on-tab-2" );$(".tabbar-ind").addClass("righted");') Liked
       div.main-contain
         .tabs-container#u-tcontain
           .list-container.recommendation
